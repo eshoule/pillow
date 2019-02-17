@@ -1,0 +1,41 @@
+.error-page {
+  background-image: url(image_path("error_page.jpg"));
+  background-size: cover;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $black-404;
+  padding-top: 30px;
+
+  a {
+    color: $blue;
+  }
+
+  a:hover {
+    color: $light-blue;
+  }
+
+  h3 {
+    font-size: 33px;
+  }
+}
+
+.error-symbol {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  background-color: $opaque-black;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  span {
+    font-weight: 700;
+    font-size: 33px;
+  }
+}

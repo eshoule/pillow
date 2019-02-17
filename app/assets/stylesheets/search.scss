@@ -1,0 +1,40 @@
+.search {
+  height: 20px;
+  position: relative;
+  font-size: 18px;
+
+  input {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    border-radius: 5px;
+    padding: 20px;
+    padding-right: 120px;
+    text-overflow: ellipsis;
+  }
+
+  input::placeholder {
+    font-size: 16px;
+    
+  }
+
+  button {
+    color: $white;
+    height: 44px;
+    width: 102px;
+    border-radius: 5px;
+    background-color: $opaque-blue;
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    text-align: center;
+  }
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid $white;
+}

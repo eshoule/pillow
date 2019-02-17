@@ -1,0 +1,203 @@
+.navbar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5vw;
+  color: $light-black;
+  min-width: 850px;
+  box-shadow: 0 5px 10px $footer-gray;
+
+  .hidden {
+    display: none;
+  }
+
+  .selected-link {
+    color: $medium-blue;
+    border-bottom: 5px solid $blue;
+    box-sizing: border-box;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 5px solid transparent;
+    white-space: nowrap;
+
+    a {
+      height: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+  }
+
+  li:hover {
+    color: $light-blue;
+  }
+
+  ul {
+    color: $blue;
+    display: flex;
+    align-items: center;
+    margin-left: 15vw;
+
+    li {
+      font-size: 12px;
+
+    }
+    li:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+.join:last-child::before {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  content: "or";
+  font-size: 14px;
+  color: $light-black;
+}
+
+.logo {
+  width: 80px;
+  height: 81px;
+  background-color: $blue;
+  z-index: 5;
+  text-align: center;
+  color: $white;
+  padding: 10px;
+  font-size: 35px;
+
+  i {
+    transform: rotate(-5deg);
+  }
+}
+
+.logo::after {
+  content: 'Pillow';
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.logo-home {
+  margin-left: 5vw;
+}
+
+.navbar-dropdown {
+  padding-left: calc(5vw + 120px);
+}
+
+.navbar-dropdown-home {
+  padding-left: 120px;
+}
+
+.navbar-dropdown, .navbar-dropdown-home {
+  position: absolute;
+  background-color: $white;
+  z-index: 4;
+  top: 48px;
+  width: 100%;
+  display: flex;
+  border-top: 1px solid $footer-gray;
+  font-size: 14px;
+  box-shadow: 0 5px 10px #aaaaaa;
+
+  .dropdown-col{
+    display: flex;
+    flex-direction: row;
+
+    div {
+      border-right: none;
+      padding-left: 0;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-right: 1px solid $footer-gray;
+  }
+
+  h3 {
+    font-size: 14px;
+    padding-bottom: 10px;
+    line-height: 16px;
+  }
+
+  div:last-child {
+    border-right: none;
+  }
+
+  a {
+    padding-bottom: 20px;
+    color: $blue;
+  }
+
+  a:hover {
+    color: $light-blue;
+  }
+}
+
+.user-dropdown {
+  position: absolute;
+  background-color: $white;
+  height: 125px;
+  width: 125px;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  top: 51px;
+  right: 5vw;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px #aaaaaa;
+  h3 {
+    font-size: 12px;
+    padding-left: 10px;
+ 
+  } 
+
+  button:first-of-type {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    
+    border-bottom: 1px solid $footer-gray;
+  }
+
+  button {
+    padding-left: 10px;
+    color: $blue;
+  }
+  button:hover {
+    color: $light-blue;
+  }
+}
+
+.my-zillow {
+  
+  button {
+    display: flex;
+    align-items: center;
+  }
+
+  div {
+    
+    margin-left: 5px;
+    background-color: $orange;
+    height: 25px;
+    width: 30px;
+    border-radius: 5px;
+    display: flex;
+    color: $white;
+    justify-content: center;
+    align-items: center;
+  }
+}

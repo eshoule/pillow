@@ -1,0 +1,229 @@
+.modal-background-listing,
+.modal-background-session {
+  position: fixed;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-background-listing {
+  background-color: $opaque-black;
+}
+
+.modal-background-session {
+  background-color: $opaque-white;
+  padding-top: 30px;
+
+  #hidden {
+    display: none;
+  }
+}
+
+.modal-child-listing {
+  width: 950px;
+  overflow-y: scroll;
+}
+
+.modal-child-session {
+  background: $white;
+  height: 450px;
+  padding: 20px;
+  position: relative;
+  color: $light-black;
+  box-shadow: 0 0 10px 2px #aaaaaa;
+  width: 400px;
+
+  .error-input {
+    border: 1px solid $red;
+    background-color: $light-red;
+  }
+
+  .error-input:hover {
+    border: 1px solid $red;
+    background-color: $lightest-red;
+  }
+
+  .error-input:focus {
+    background-color: $white;
+    border: 1px solid $blue;
+  }
+
+  .error-input:focus::placeholder {
+    color: $medium-gray;
+  }
+
+  .errors, .error-input::placeholder {
+    color: $red;
+  }
+
+  .errors {
+    padding-top: 5px;
+    font-size: 12px;
+  }
+
+  button {
+    padding-bottom: 10px;
+  }
+
+  button:last-child {
+    margin-left: 30px;
+  }
+
+  .modal-buttons {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $light-gray;
+    margin-bottom: 15px;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type=submit], #demo-button {
+    background-color: $blue;
+    border-radius: 5px;
+    width: 203px;
+    height: 30px;
+    color: $white;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+  }
+
+  #demo-button {
+    margin-top: 15px;
+    margin-left: 0px;
+    padding-bottom: 0;
+    height: 40px;
+  }
+  
+  input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid $footer-gray;
+    margin-top: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: $medium-gray;
+  }
+
+  input:hover {
+    border: 1px solid $blue;
+  }
+
+  input[type="text"]:focus {
+    border: 1px solid $blue;
+    box-shadow:  0 0 10px $blue;
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
+  }
+
+  .submit {
+    color: $blue;
+    flex-direction: row;
+
+    input {
+      height: 36px;
+    }
+
+    p {
+      padding: 8px;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    p:hover {
+      cursor: pointer;
+    }
+  }
+
+  .connect {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid $medium-gray;
+    align-items: center;
+
+    i {
+      margin-left: 10px;
+      font-size: 30px;
+    }
+
+    i:first-child {
+      color: $dark-blue;
+    }
+  }
+
+  .password {
+    color: $footer-gray;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+  .session-checkbox {
+    input {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+    }
+
+    label{
+      margin-top: 15px;
+    }
+
+    margin-top: 10px;
+    color: $light-black;
+    font-size: 16px;
+    display: flex;
+  }
+
+  .session-signup-text {
+    font-size: 12px;
+    padding: 8px;
+
+    li {
+      margin-top: 7px;
+
+      span {
+        color: $light-black;
+      }
+    }
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.close-modal:hover {
+  cursor: pointer;
+  color: $blue;
+}
+
+.selected-button {
+  border-bottom: 2px solid $blue;
+  color: $blue;
+}
+

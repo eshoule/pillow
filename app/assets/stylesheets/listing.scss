@@ -1,0 +1,413 @@
+.listing {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+
+  img {
+    height: 50%;
+    width: 300px;
+  }
+
+  h4 {
+    color: $light-black;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: $gray;
+    width: 100%;
+    width: calc(100% - 380px);
+  }
+
+  .listing-dropdown-result {
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+  }
+}
+
+.listing-info {
+  display: flex;
+  padding-right: 330px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.listing-header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  height: 50px;
+  background-color: $filter-bar-blue;
+  justify-content: space-between;
+  color: $light-black;
+
+  div {
+    display: flex;
+  }
+  
+  i {
+    margin-right: 10px;
+  }
+
+  .fa-caret-down {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  button {
+    display: flex;
+    border-right: 1px solid $white;
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  button:last-child {
+    border-left: 1px solid $white;
+    border-right: none;
+  }
+
+  button:hover {
+    background-color: $dark-filter-bar-blue;
+  }
+
+  .fa-heart {
+    position: static;
+    font-size: 16px;
+  }
+}
+
+.listing-address {
+  font-size: 33px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  color: $light-black;
+
+  .listing-city {
+    font-size: 28px;
+  }
+
+  .listing-address-sub {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  .listing-address-des {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 20px;
+  }
+}
+
+.photo-viewer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  padding-top: 50px;
+  
+
+  .fas, .far{
+    position: absolute;
+    top: 215px;
+    background-color: $opaque-black;
+    font-size: 50px;
+    color: $footer-gray;
+    border: 1px solid $white;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  .fas:hover {
+    cursor: pointer;
+    color: $light-blue;
+    background-color: $opaque-black-dark;
+  }
+
+  .far:hover {
+    cursor: pointer;
+    color: $light-blue;
+    background-color: $opaque-black-dark;
+  }
+
+  .fa-angle-left {
+    left: 20px;
+  }
+
+  .fa-angle-right {
+    right: 20px;
+  }
+
+  .img-1 {
+    width: 60%;
+    height: 100%;
+    margin-right: 5px;
+    object-fit: cover;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .photo-scroll {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    left: 0;
+
+    .photo-viewer-images {
+      display: grid;
+      grid-template-rows: 200px 200px;
+      grid-template-columns: 200px 200px 200px 200px 200px 200px;
+      grid-gap: 5px;
+    }
+  }
+}
+
+.listing-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-footer {
+  height: 200px;
+  background-color: $light-gray;
+  margin-top: 20px;
+}
+
+.contact-agent {
+  width: 250px;
+  height: 400px;
+  box-shadow: 0 0 5px #aaaaaa;
+  background-color: $white;
+  border: 1px solid $medium-gray;
+  position: absolute;
+  top: 370px;
+  right: 20px;
+  padding: 10px;
+  border-top: 3px solid $blue;
+  color: $light-black;
+
+  h3 {
+    margin-top: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  input[type='text'] {
+    border: 1px solid $footer-gray;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+
+  input[type='checkbox'] {
+    display: none;
+    font-size: 12px;
+    margin-right: 0;
+  }
+ 
+  input[type='text']::placeholder {
+    color: $footer-gray;
+  }
+
+  textarea {
+    height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid $footer-gray;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 9px;
+    line-height: 12px;
+    margin-top: 10px;
+  }
+
+  button {
+    color: $white;
+    background-color: $blue;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 36px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+
+  button:hover {
+    background-image: linear-gradient($light-black, $blue);
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
+
+.listing-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: $light-black;
+  margin-bottom: 15px;
+}
+
+.listing-mortgate {
+  font-size: 13px;
+  color: $light-black;
+  font-weight: 700;
+}
+
+.listing-mortgage-price {
+  font-size: 16px;
+  color: $light-black;
+}
+
+.listing-dropdown-title {
+  display: flex;
+  font-size: 28px;
+  align-items: space-between;
+  border-top: 1px solid $light-gray;
+  width: calc(100% - 330px);
+  margin-right: 330px;
+  align-items: center;
+  color: $light-black;
+  justify-content: space-between;
+  margin-left: 20px;
+
+  i {
+    margin-right: 20px;
+  }
+
+  h1 {
+    width: 80%;
+    margin-left: 0;
+  }
+}
+
+.listing-dropdown-title:hover {
+  cursor: pointer;
+}
+
+.facts-and-features {
+  margin-left: 20px;
+  font-size: 15px;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 330px);
+
+    div {
+      width: 30%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .far, .fas {
+    position: static;
+    font-size: 30px;
+    color: $light-black;
+    margin-right: 10px;
+    width: 26px;
+  }
+
+  .listing-details {
+    display: flex;
+    flex-direction: column;
+    color: $light-black;
+    width: 70%;
+  
+    h5 {
+      font-size: 15px;
+      margin: 0;
+      margin-bottom: 5px;
+    }
+  
+    h6 {
+      font-size: 15px;
+      margin: 0;
+      font-weight: 300;
+    }
+  }
+}
+
+.features {
+  margin-left: 20px;
+  color: $light-black;
+  margin-bottom: 30px;
+  width: calc(100% - 330px);
+
+  h5 {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 13px;
+    border-top: 1px solid $light-gray;
+    padding-top: 10px;
+  }
+
+  .interior-features {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    h5 {
+      font-size: 14px;
+    }
+
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      span {
+        color: $footer-gray;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        width: 47%;
+      }
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+

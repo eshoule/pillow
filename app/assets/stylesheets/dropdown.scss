@@ -1,0 +1,157 @@
+.dropdown {
+  font-family: $font;
+  color: $light-black;
+  font-size: 14px;
+  position: absolute;
+  top: 50px;
+  left: 1px;
+  z-index: 1;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 10px #aaaaaa;
+
+  .button-right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .button-left {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px;
+  }
+
+  button:hover {
+    color: $white;
+    background-color: $blue;
+  }
+
+  label:hover {
+    cursor: pointer;
+    color: $blue;
+  }
+
+  input[type="text"] {
+    border: 1px solid $footer-gray;
+    padding: 5px;
+  }
+
+  input[type="text"]::placeholder {
+    color: $footer-gray;
+  }
+
+  input[type="text"]:focus {
+    border: 1px solid $blue;
+    box-shadow:  0 0 10px $blue;
+  }
+
+  input[type="text"]:hover {
+    border: 1px solid $blue;
+  }
+
+  span {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: $footer-gray;
+  
+  }
+}
+
+.checkbox-dropdown:hover {
+  color: $blue;
+
+  .input-box {
+    border: 1px solid $blue;
+  }
+}
+
+
+.fa-circle {
+  font-size: 10px;
+  margin-left: 0;
+}
+
+
+
+.checkbox-dropdown {
+  display: flex;
+  align-items: center;
+  width: 260px;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 550;
+
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:hover {
+    cursor: pointer;
+  }
+}
+
+.input-box {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+  border: 1px solid $light-black;
+}
+
+.checked::before {
+  content: "\2713";
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  position: absolute;
+  margin-left: 3px;
+}
+
+.sub-checkbox {
+  padding-left: 15px;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.red-circle {
+  color: $red;
+}
+
+.blue-circle {
+  color: $blue;
+}
+
+.purple-circle {
+  color: $purple;
+}
+
+.yellow-circle {
+  color: $yellow;
+}
+
+.price-range {
+  display: flex;
+  border-bottom: 1px solid $footer-gray;
+  padding: 10px;
+}
+
+.price-input {
+  width: 70px;
+  padding: 5px;
+}
+
+.button-selected {
+  background-color: $light-blue;
+  color: white;
+}

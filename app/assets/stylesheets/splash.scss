@@ -1,0 +1,72 @@
+.splash-search {
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-left: 25%;
+  padding-right: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    color: $white;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 65px;
+    height: 60px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.splash-buttons {
+  height: 50px;
+  color: $white;
+  background-color: $opaque-black;
+  margin-bottom: 5px;
+
+  button {
+    width: 25%;
+    border-top: 1px solid $white;
+    border-bottom: 1px solid $white;
+    border-left: 1px solid $white;
+    color: $white;
+    display: flex;
+    justify-content: center;
+  }
+
+  button:last-child {
+    border-right: 1px solid $white;
+  }
+
+  button:hover {
+    background-color: $opaque-light-blue;
+  }
+}
+
+.selected {
+  background-color: $opaque-blue;
+}
+
+.background-0 {
+  background-image: url("http://i.imgur.com/39Be3oe.gif");
+}
+
+.background-1 {
+  background-image: url("https://i.imgur.com/Zv3wkiX.gif");
+}
+
+.background-2 {
+  background-image: url("https://i.imgur.com/1epp3de.gif");
+}
+
+.background-3 {
+  background-image: url("https://i.imgur.com/SNmuCPG.gif");
+}

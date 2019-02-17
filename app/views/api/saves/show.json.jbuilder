@@ -1,0 +1,1 @@
+json.extract! @save_home, :id, :user_id, :home_id

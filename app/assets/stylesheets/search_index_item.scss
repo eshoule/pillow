@@ -1,0 +1,88 @@
+.search-index-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  background-size: cover;
+  height: 175px;
+  width: 46%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.search-index-item:hover {
+  cursor: pointer;
+}
+
+.days {
+  position: absolute;
+  top: 5px;
+}
+
+.far {
+  font-size: 24px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  color: $white;
+  
+}
+
+.fa-heart {
+  right: -2px;
+  top: -2px;
+}
+
+.small {
+  position: absolute;
+  font-size: 21px;
+  color: rgba(0,0,0,0.6);
+  top: 7px;
+  right: 7px;
+}
+
+.days {
+  left: 10px;
+  font-size: 12px;
+}
+
+.address, .real-estate {
+  display: flex;
+  color: $light-gray;
+  font-size: 12px;
+}
+
+.type {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+
+  i {
+    font-size: 10px;
+    margin-right: 5px;
+  }
+}
+
+.red-circle {
+  color: red;
+}
+
+.purple-circle {
+  color: purple;
+}
+
+.info {
+  display: flex;
+  font-size: 12px;
+  align-items: flex-end;
+
+  p:first-child {
+    font-size: 28px;
+  }
+
+  p {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  <script id="bootstrap-current-user" type="text/javascript">
+  	window.currentUser = <%= render("api/users/user.json.jbuilder",
+      user: current_user).html_safe %>
+    window.filters = '<%= get_filters.to_json %>'
+    window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
+  </script>
+<% end %>
+
+<main id="root"></main>
