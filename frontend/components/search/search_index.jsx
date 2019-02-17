@@ -45,7 +45,6 @@ class SearchIndex extends React.Component {
     }
 
     return this.state.listings.map((listing, idx) => {
-      // let saved = this.props.saves[listing.id] ? true : false
       return (
         <SearchIndexItemContainer
           key={`listing-${idx}`}
