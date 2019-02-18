@@ -42,7 +42,7 @@ class NavBar extends React.Component {
   }
 
   componentDidUpdate(oldProps) {
-    if (this.props.currentUser !== oldProps.currentUser) {
+    if (this.props.currentUser && this.props.currentUser !== oldProps.currentUser) {
       this.props.fetchSaves();
     }
 
@@ -90,7 +90,7 @@ class NavBar extends React.Component {
   }
 
   showSavedHomes() {
-    this.props.history.push('/homes');
+    this.props.history.push('/homes/for-sale');
     this.props.updateFilter({ saved: true });
   }
 

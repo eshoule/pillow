@@ -1,5 +1,4 @@
 class Api::SavesController < ApplicationController
-
   def create
     @save_home = Save.new(save_params)
     @save_home.user_id = current_user.id
@@ -8,7 +7,10 @@ class Api::SavesController < ApplicationController
   end
 
   def index 
-    @saves = current_user.saves
+    @saves = []
+    if current_user
+      @saves = current_user.saves
+    end
   end
 
   def destroy

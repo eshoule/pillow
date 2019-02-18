@@ -1,4 +1,5 @@
 require_relative "seed_data"
+require 'open-uri';
 
 User.destroy_all
 Home.destroy_all
@@ -69,14 +70,13 @@ users.each_with_index do |user, idx|
       description: description
     })
 
-    # Add images to property
-    # images.each do |img|
-    #   print img
-    #   file = EzDownload.open(img)
-    #   name = img.split("/")[0]
-    #   home.photos.attach(io: file, filename: name)
-    #   home.save!
-    # end
+    Add images to property
+    images.each do |img|
+      file = open(img)
+      name = img.split("/")[0]
+      home.photos.attach(io: file, filename: name)
+      home.save!
+    end
 
     count += 1
   end

@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery prepend: true
   helper_method :current_user, :logged_in?, :get_filters
 
   DEFAULT_FILTERS = {
@@ -36,7 +35,6 @@ class ApplicationController < ActionController::Base
   def logout!
     current_user.reset_session_token!
     session[:session_token] = nil
-    session[:filters] = nil
     @current_user = nil
   end
 

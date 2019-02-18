@@ -154,7 +154,7 @@
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
-  top: 51px;
+  top: 50px;
   right: 5vw;
   display: flex;
   flex-direction: column;
@@ -176,6 +176,7 @@
     padding-left: 10px;
     color: $blue;
   }
+
   button:hover {
     color: $light-blue;
   }
@@ -189,7 +190,6 @@
   }
 
   div {
-    
     margin-left: 5px;
     background-color: $orange;
     height: 25px;

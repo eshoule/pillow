@@ -73,7 +73,6 @@ class Api::HomesController < ApplicationController
       DEFAULT_FILTERS[:homeType]
   end
 
-
   def save_filters
     session[:filters] = {
       listingType: list,
