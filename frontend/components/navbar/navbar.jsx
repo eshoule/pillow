@@ -12,6 +12,7 @@ import {
 const LINKS = [
   {path: '/homes/for-sale', name: 'Buy'},
   {path: '/homes/for-rent', name: 'Rent'},
+  
   {path: '/sell', name: 'Sell'},
   {path: '/home-loans', name: 'Mortgages'},
   {path: '/agent-finder', name: 'Agent Finder'},
@@ -62,6 +63,8 @@ class NavBar extends React.Component {
     } else if (path.includes('more')) {
       this.setState({ selected: 'More'});
     } else if (path.includes('homes')) {
+      this.setState({ selected: 'Buy'});
+    } else if (path.includes('buy')) {
       this.setState({ selected: 'Buy'});
     } else {
       this.setState({ selected: ''});

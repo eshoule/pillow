@@ -13,6 +13,12 @@ class SplashPage extends React.Component{
     this.renderTitle = this.renderTitle.bind(this);
   }
 
+  componentDidMount () {
+    const path = this.props.location.pathname;
+    const newSelection = this.getSelected(path);
+    this.setState({ selected: newSelection });
+  }
+
   componentDidUpdate(oldProps) {
     const path = this.props.location.pathname;
     if (path !== oldProps.location.pathname) {
@@ -36,8 +42,7 @@ class SplashPage extends React.Component{
   }
 
   selectButton(idx, path) {
-    return e => {
-      this.setState({ selected: idx });
+    return () => {
       this.props.history.push(path);
     };
   }
@@ -78,7 +83,7 @@ class SplashPage extends React.Component{
     return (
       <div>
         <div className={`splash-search background-${this.state.selected}`}>
-          <h1>{this.renderTitle()}</h1>
+        <h1>{this.renderTitle()}</h1>
           <div className="splash-buttons">{this.renderButtons()}</div>
           <div className="arrows">{this.renderArrows()}</div>
           <Search updateFilter={this.props.updateFilter}/>

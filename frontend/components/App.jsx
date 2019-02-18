@@ -28,7 +28,7 @@ const App = () => (
         <Route exact path={path} component={SearchResultsContainer} key={path}/>
       )}
 
-      {["/", "/buy", "/rent", "/sell", "find-your-home"].map(path => 
+      {["/", "/buy", "/rent", "/sell", "/find-your-home"].map(path => 
         <Route exact path={path} component={SplashPage} key={path}/>
       )}
 
