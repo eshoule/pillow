@@ -37,6 +37,25 @@ class HouseMap extends React.Component {
         ycoord: this.props.state.ycoord 
       });
     }
+    if (this.props.state.zoom !== this.state.zoom) {
+      this.map.setZoom(this.props.state.zoom);
+      this.map.setCenter(this.props.state.lat, this.props.state.lng);
+      this.setState({ 
+        zoom: this.props.state.zoom,
+         });
+    }
+
+    if (this.props.state.lat !== this.state.lat || 
+        this.props.state.lng !== this.state.lng) {
+      this.map.setCenter({
+        lat: this.props.state.lat, 
+        lng: this.props.state.lng
+      });
+      this.setState({
+        lat: this.props.state.lat,
+        lng: this.props.state.lng
+      });
+    }
   }
 
   handleMapChange() {
