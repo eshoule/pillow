@@ -13,7 +13,6 @@ gem 'json'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
-gem 'pry-rails'
 gem "aws-sdk-s3", require: false
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ez_download'
@@ -23,6 +22,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

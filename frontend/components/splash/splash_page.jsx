@@ -42,7 +42,7 @@ class SplashPage extends React.Component{
   }
 
   selectButton(idx, path) {
-    return () => {
+    return e => {
       this.props.history.push(path);
     };
   }
