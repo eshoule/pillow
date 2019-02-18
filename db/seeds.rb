@@ -70,7 +70,7 @@ users.each_with_index do |user, idx|
       description: description
     })
 
-    Add images to property
+    # Add images to property
     images.each do |img|
       file = open(img)
       name = img.split("/")[0]
