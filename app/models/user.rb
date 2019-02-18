@@ -17,11 +17,11 @@ class User < ApplicationRecord
   def self.validate_credentials(email, password)
     errors = []
     if email.empty?
-      errors << 'Please enter a password'
+      errors << 'Enter a valid email address'
     end
 
     if password.empty?
-      errors << 'Enter a valid email address'
+      errors << 'Please enter a password'
     end
 
     user = User.find_by_credentials(email, password)
