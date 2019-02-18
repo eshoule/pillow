@@ -52,15 +52,15 @@ class MarkerManager {
 
   getIcon(listing, selected) {
     if (selected) {
-      return './assets/green_marker.png'
+      return window.greenMarker;
     } else {
       switch(listing.listing_type) {
-        case 'recently sold': return './assets/yellow_marker.png';
-        case 'for rent': return './assets/purple_marker.png';
-        case 'make me move': return './assets/blue_marker.png';
-        case 'pre-foreclosure': return './assets/blue_marker.png';
-        case 'foreclosed': return './assets/blue_marker.png';
-        default: return './assets/red_marker.png';
+        case 'recently sold': return window.yellowMarker;
+        case 'for rent': return window.purpleMarker;
+        case 'make me move': return window.blueMarker;
+        case 'pre-foreclosure': return window.blueMarker;
+        case 'foreclosed': return window.blueMarker;
+        default: return window.redMarker;
       }
     }
   }
