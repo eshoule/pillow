@@ -1,4 +1,5 @@
 require_relative "seed_data"
+require "ez_download"
 
 User.destroy_all
 Home.destroy_all
