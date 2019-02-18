@@ -184,7 +184,6 @@ PHOTOS = {
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/adirondack-british-columbia-canada-1516047.jpg",
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/afternoon-architecture-chairs-271815.jpg",
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/alley-architecture-building-210017.jpg",
-    "https://s3-us-west-1.amazonaws.com/pillow-app/outside/apartment-architecture-balco.textClipping",
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/architecture-blue-water-buildings-261102.jpg",
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/bench-chairs-daylight-1097174.jpg",
     "https://s3-us-west-1.amazonaws.com/pillow-app/outside/botanical-cacti-cactus-256355.jpg",

@@ -71,7 +71,7 @@ users.each_with_index do |user, idx|
     })
 
     # Add images to property
-    images.each do |img|
+    images.shuffle!.each do |img|
       file = open(img)
       name = img.split("/")[0]
       home.photos.attach(io: file, filename: name)
