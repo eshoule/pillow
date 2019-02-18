@@ -1,5 +1,4 @@
 require_relative "seed_data"
-require "ez_download"
 
 User.destroy_all
 Home.destroy_all
@@ -71,13 +70,13 @@ users.each_with_index do |user, idx|
     })
 
     # Add images to property
-    images.each do |img|
-      print img
-      file = EzDownload.open(img)
-      name = img.split("/")[0]
-      home.photos.attach(io: file, filename: name)
-      home.save!
-    end
+    # images.each do |img|
+    #   print img
+    #   file = EzDownload.open(img)
+    #   name = img.split("/")[0]
+    #   home.photos.attach(io: file, filename: name)
+    #   home.save!
+    # end
 
     count += 1
   end
