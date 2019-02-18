@@ -35,7 +35,7 @@ class SearchIndex extends React.Component {
   }
 
   renderIndexItems() {
-    if (this.props.listings.length === 0) {
+    if (this.state.listings.length === 0) {
       return (
         <div>
           <h2>Don't see any homes?</h2>
