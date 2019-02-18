@@ -28,15 +28,15 @@ const Footer = () => {
       </div>
       <div className="footer-3">
         <Link to="/">eshoule@gmail.com</Link>
-        <Link to="https://github.com/eshoule">
+        <a href="https://github.com/eshoule">
           <i className="fab fa-github"></i>
-        </Link>
-        <Link to="https://linkedin.com/eshoule">
+        </a>
+        <a href="https://linkedin.com/in/eshoule">
           <i className="fab fa-linkedin-in"></i>
-        </Link>
-        <Link to="https://angel.co/eshoule">
+        </a>
+        <a href="https://angel.co/eshoule">
           <i className="fab fa-angellist"></i>
-        </Link>
+        </a>
       </div>
     </div>
   );
