@@ -3,13 +3,12 @@
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
       user: current_user).html_safe %>
     window.filters = '<%= get_filters.to_json %>'
-    window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
-    window.greenMarker = "<%= image_url('green_marker.png') %>"
-    window.yellowMarker = "<%= image_url('yellow_marker.png') %>"
-    window.purpleMarker = "<%= image_url('purple_marker.png') %>"
-    window.blueMarker = "<%= image_url('blue_marker.png') %>"
-    window.redMarker = "<%= image_url('red_marker.png') %>"
   </script>
 <% end %>
+
+<script id="bootstrap-current-user" type="text/javascript">
+  window.googleAPIKey = '<%= Rails.application.credentials.google[:api_key] %>'
+  window.yellowMarker = "<%= image_url('yellow_marker.png') %>"
+</script>
 
 <main id="root"></main>
