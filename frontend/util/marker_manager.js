@@ -1,35 +1,24 @@
+import fontawesome from './fontawesome-markers.min.js';
+
 class MarkerManager {
   constructor(map, handleClick, handleHover, removeHover){
     this.map = map;
     this.handleClick = handleClick;
     this.handleHover = handleHover;
     this.removeHover = removeHover;
+    this.setSelectedIcon = this.setSelectedIcon.bind(this);
+    this.setUnselectedIcon = this.setUnselectedIcon.bind(this);
+    this.getColor = this.getColor.bind(this);
     this.markers = {};
     this.state = { counter: 0 };
-    this.selectMarker = this.selectMarker.bind(this);
   }
 
-  findMarkerPos(listing) {
+  findMarker(listing) {
     let marker;
     Object.values(this.markers).forEach(mark => {
       if (mark.listingId === listing.id) marker = mark;
     });
-
-    return [marker.xcoord, marker.ycoord];
-  }
-
-  selectMarker(listing) {
-    if (this.state.counter === 0) {
-      this.state.counter = 1;
-      this.removeMarker(this.markers[listing.id]);
-      this.createMarkerFromListing(listing, true);
-    } 
-  }
-
-  deselectMarker(listing) {
-    this.state.counter = 0;
-    this.removeMarker(this.markers[listing.id]);
-    this.createMarkerFromListing(listing, false)
+    return marker;
   }
 
   updateMarkers(listings, selected){
@@ -50,41 +39,81 @@ class MarkerManager {
       
   }
 
-  getIcon(listing, selected) {
-    if (selected) {
-      return window.greenMarker;
-    } else {
-      switch(listing.listing_type) {
-        case 'recently sold': return window.yellowMarker;
-        case 'for rent': return window.purpleMarker;
-        case 'make me move': return window.blueMarker;
-        case 'pre-foreclosure': return window.blueMarker;
-        case 'foreclosed': return window.blueMarker;
-        default: return window.redMarker;
-      }
+  getColor(listing) {
+    switch(listing) {
+      case 'recently sold': return "yellow";
+      case 'for rent': return "purple";
+      case 'make me move': return "blue";
+      case 'pre-foreclosure': return "blue";
+      case 'foreclosed': return "blue";
+      default: return "red";
     }
   }
 
-  createMarkerFromListing(listing, selected) {
-    const icon = {
-      url: this.getIcon(listing, selected),
-      size: new google.maps.Size(20, 32),
-    };
+  setSelectedIcon(marker) {
+    marker.setIcon({
+      path: fontawesome.markers.CIRCLE,
+      scale: 0.25,
+      strokeWeight: 2.5,
+      strokeColor: 'white',
+      strokeOpacity: 1,
+      fillColor: "green",
+      fillOpacity: 1.0,
+      // optimized: false,
+      zIndex: 99999
+    });
+    marker.setZIndex(200)
+  }
 
+
+  setUnselectedIcon(marker) {
+    marker.setIcon({
+      path: fontawesome.markers.CIRCLE,
+      scale: 0.25,
+      strokeWeight: 2.5,
+      strokeColor: 'white',
+      strokeOpacity: 1,
+      fillColor: this.getColor(marker.listing),
+      fillOpacity: 1.0,
+    });
+    marker.setZIndex(0)
+    
+  }
+
+  createMarkerFromListing(listing, selected) {
+    const color = this.getColor(listing.listing_type);
     const position = new google.maps.LatLng(listing.lat, listing.lng);
+
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       listingId: listing.id,
-      icon: icon
+      icon: {
+        path: fontawesome.markers.CIRCLE,
+        scale: 0.25,
+        strokeWeight: 2.5,
+        strokeColor: 'white',
+        strokeOpacity: 1,
+        fillColor: color,
+        fillOpacity: 1.0,
+      }
     });
     
     const coords = this.calculateMarkerPos(marker);
     marker.xcoord = coords[0];
     marker.ycoord = coords[1];
+    marker.listing = listing.listing_type;
+
     marker.addListener('click', () => this.handleClick(listing));
-    marker.addListener('mouseover', () => this.handleHover(listing));
-    marker.addListener('mouseout', () => this.removeHover(listing));
+
+    marker.addListener('mouseover', () => {
+      this.handleHover(listing);
+    });
+
+    marker.addListener('mouseout', () => {
+      this.removeHover(listing)
+    });
+
     this.markers[marker.listingId] = marker;
   }
 

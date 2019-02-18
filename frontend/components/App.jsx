@@ -17,7 +17,6 @@ const App = () => (
   <div>
     <Modal />
     <NavBarContainer />
-    
 
     {[home, sell, sellSearch, rent, rentSearch].map(path => 
       <Route exact path={path} component={FilterBarContainer} key={path}/>

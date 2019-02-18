@@ -20,7 +20,7 @@ class SearchIndexItem extends React.Component {
   handleClick() {
     const newPath = this.props.history.location.pathname + `/${this.props.listing.id}`;
     this.props.history.push(newPath);
-    this.props.openModal('showListing');
+    // this.props.openModal('showListing');
   }
 
   renderCircle() {

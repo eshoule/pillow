@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Listing from './listing';
 import { closeModal } from '../../actions/modal_actions';
+import { fetchListings } from '../../actions/listing_actions';
 
 const mstp = (state, ownProps) => {
   const listingId = ownProps.history.location.pathname.split("/");
@@ -12,7 +13,8 @@ const mstp = (state, ownProps) => {
 };
 
 const mdtp = dispatch => ({
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  fetchListings: () => dispatch(fetchListings())
 });
 
 export default withRouter(connect(mstp, mdtp)(Listing));

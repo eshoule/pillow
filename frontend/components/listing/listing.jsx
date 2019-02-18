@@ -35,24 +35,39 @@ const ListingInfo = ({ listing }) => (
   </div>
 )
 
-const Listing = ({ listing }) => (
-  <div className="listing">
-    <ListingHeaderContainer listing={listing}/>
-    <div></div>
-    <PhotoViewer photos={listing.photoUrls}/>
-    <ListingInfo listing={listing} />
-    <FactsAndFeatures listing={listing}/>
-    <Features listing={listing}/>
-    <ListingDropdown title={'Home Value'} />
-    <ListingDropdown title={'Price / Tax History'} />
-    <ListingDropdown title={'Mortgage'} />
-    <ListingDropdown title={'Home Expenses'} />
-    <ListingDropdown title={`Nearby Schools in ${listing.city}`} />
-    <ContactAgent address={
-      `${listing.street}, ${listing.city}, 
-      ${listing.state} ${listing.zip}`}/>
-    <div className="listing-footer"></div>
-  </div>
-);
+class Listing extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchListings(this.props.filters);
+  }
+
+  render() {
+    const listing = this.props.listing;
+    if (!listing) return null;
+
+    return (
+      <div className="listing">
+      <ListingHeaderContainer listing={listing}/>
+      <div></div>
+      <PhotoViewer photos={listing.photoUrls}/>
+      <ListingInfo listing={listing} />
+      <FactsAndFeatures listing={listing}/>
+      <Features listing={listing}/>
+      <ListingDropdown title={'Home Value'} />
+      <ListingDropdown title={'Price / Tax History'} />
+      <ListingDropdown title={'Mortgage'} />
+      <ListingDropdown title={'Home Expenses'} />
+      <ListingDropdown title={`Nearby Schools in ${listing.city}`} />
+      <ContactAgent address={
+        `${listing.street}, ${listing.city}, 
+        ${listing.state} ${listing.zip}`}/>
+      <div className="listing-footer"></div>
+    </div>
+    )
+  }
+}
 
 export default Listing;

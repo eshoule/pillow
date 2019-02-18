@@ -24,11 +24,18 @@ class SearchResults extends React.Component {
   }
 
   componentDidUpdate(oldProps) {
+    const markerManager = this.state.markerManager;
     if (this.props.filters !== oldProps.filters) {
       if (this.props.filters.saved) {
-        this.props.fetchSavedListings(this.props.filters);
+        this.props.fetchSavedListings(this.props.filters)
+          .then((res) => {
+            markerManager.updateMarkers(Object.values(res.listings), false);
+          });
       } else {
-        this.props.fetchListings(this.props.filters);
+        this.props.fetchListings(this.props.filters)
+          .then((res) => {
+            markerManager.updateMarkers(Object.values(res.listings), false);
+          });
       }
     } 
     if (this.props.location.pathname !== oldProps.location.pathname){
@@ -42,19 +49,19 @@ class SearchResults extends React.Component {
   }
 
   showListingInfo(listing) {
-    const coords = this.state.markerManager.findMarkerPos(listing);
-    this.state.markerManager.selectMarker(listing);
-
+    const marker = this.state.markerManager.findMarker(listing);
+    this.state.markerManager.setSelectedIcon(marker);
     this.setState({ 
       show: listing, 
-      xcoord: coords[0],
-      ycoord: coords[1]
-    })
+      xcoord: marker.xcoord,
+      ycoord: marker.ycoord
+    });
   }
 
   hideListingInfo(listing) {
-    this.state.markerManager.deselectMarker(listing);
-    this.setState({ show: null })
+    const marker = this.state.markerManager.findMarker(listing);
+    this.state.markerManager.setUnselectedIcon(marker);
+    this.setState({ show: null });
   }
 
   getLatLngSearch() {
@@ -62,8 +69,8 @@ class SearchResults extends React.Component {
     let newQuery = query[query.length - 1].split("_").join("+");
     if (!newQuery.includes('sale') && !newQuery.includes('rent')) {
       $.ajax({
-        url: `https://maps.googleapis.com/maps/api/geocode/json?address=`+
-            `${newQuery}&key=${window.googleAPIkey}`
+        url: `https://maps.googleapis.com/maps/api/geocode/json?`+
+            `address=${newQuery}&key=${window.googleAPIKey}`
       }).then(res => {
         let lat = res.results[0].geometry.location.lat;
         let lng = res.results[0].geometry.location.lng;

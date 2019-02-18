@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import SessionFormContainer from '../session/session_form_container';
 import ListingContainer from '../listing/listing_container';
@@ -34,12 +35,19 @@ function Modal({ modal, closeModal }) {
   );
 }
 
-const mstp = (state) => ({
-  modal: state.ui.modal,
-});
+const mstp = (state, ownProps) => {
+  const path = ownProps.location.pathname.split("/");
+  let modal = null;
+  if (state.ui.modal) {
+    modal = state.ui.modal;
+  } else if (parseInt(path[path.length - 1])) {
+    modal = 'showListing'
+  }
+  return { modal: modal };
+};
 
 const mdtp = dispatch => ({
   closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mstp, mdtp)(Modal);
+export default withRouter(connect(mstp, mdtp)(Modal));

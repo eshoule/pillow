@@ -30,10 +30,6 @@ class HouseMap extends React.Component {
   }
 
   componentDidUpdate(oldProps) {
-    if (this.props.listings.length !== oldProps.listings.length) {
-      this.MarkerManager.updateMarkers(this.props.listings, false);
-    }
-
     if (this.props.state.show !== oldProps.state.show) {
       this.setState({ 
         show: this.props.state.show,
@@ -72,7 +68,6 @@ class HouseMap extends React.Component {
 
   registerListeners() {
     const updateFilter = this.props.updateFilter;
-
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       this.props.setMarkers(this.MarkerManager);
@@ -81,7 +76,7 @@ class HouseMap extends React.Component {
         maxLat: north,
         minLng: west,
         maxLng: east,
-      })
+      });
     });
   }
 
@@ -94,7 +89,7 @@ class HouseMap extends React.Component {
   renderInfo() {
     if (this.state.show) {
       const image = this.state.show.photoUrls;
-      const top = this.state.ycoord - 5;
+      const top = this.state.ycoord + 10;
       const left = this.state.xcoord - 5;
 
       const style = {
