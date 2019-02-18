@@ -7,9 +7,10 @@ class SearchIndexItem extends React.Component {
     this.handleSave = this.handleSave.bind(this);
   }
 
-  handleSave() {
+  handleSave(e) {
+    e.stopPropagation();
     if (!this.props.currentUser) {
-      this.props.openModal('session-signin')
+      this.props.openModal('session-signin');
     } else if (this.props.saved) {
       this.props.deleteSave(this.props.saveId);
     } else {
@@ -18,9 +19,9 @@ class SearchIndexItem extends React.Component {
   }
 
   handleClick() {
-    const newPath = this.props.history.location.pathname + `/${this.props.listing.id}`;
+    const newPath = this.props.history.location.pathname + 
+      `/${this.props.listing.id}`;
     this.props.history.push(newPath);
-    // this.props.openModal('showListing');
   }
 
   renderCircle() {
@@ -46,7 +47,8 @@ class SearchIndexItem extends React.Component {
       backgroundImage: `url(${listing.photoUrls[0]})`
     };
 
-    const hStyle = this.props.saved ? { color: 'white' } : {}
+    const hStyle = this.props.saved ? 
+      { color: 'white'} : {}
     
     return (
       <div onMouseOver={() => this.props.showListingInfo(listing)}
