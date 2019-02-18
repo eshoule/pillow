@@ -54,6 +54,7 @@ class MarkerManager {
     if (selected) {
       return window.greenMarker;
     } else {
+      debugger
       switch(listing.listing_type) {
         case 'recently sold': return window.yellowMarker;
         case 'for rent': return window.purpleMarker;
