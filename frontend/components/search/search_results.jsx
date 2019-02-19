@@ -66,8 +66,8 @@ class SearchResults extends React.Component {
 
   getLatLngSearch() {
     let query = this.props.history.location.pathname.split("/");
-    let newQuery = query[query.length - 1].split("_").join("+");
-    if (!newQuery.includes('sale') && !newQuery.includes('rent')) {
+    let newQuery = query[query.length - 1].split("_").join("+"); 
+    if (!newQuery.includes('sale') && !newQuery.includes('rent') && !parseInt(newQuery)) {
       $.ajax({
         url: `https://maps.googleapis.com/maps/api/geocode/json?`+
             `address=${newQuery}&key=${window.googleAPIKey}`
