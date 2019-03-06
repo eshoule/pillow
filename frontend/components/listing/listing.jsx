@@ -18,7 +18,7 @@ const ListingInfo = ({ listing }) => (
           ${listing.sqft} sqft`}
       </li>
       <li className="listing-address-des">
-        {listing.description}
+        {listing.description.split("[")[1].split("]")[0].replace(',', '').replace(/"/g,"")}
       </li>
     </div>
     <div>
