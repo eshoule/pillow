@@ -35,15 +35,6 @@ class SearchIndex extends React.Component {
   }
 
   renderIndexItems() {
-    if (this.state.listings.length === 0) {
-      return (
-        <div>
-          <h2>Don't see any homes?</h2>
-          <h5>Try a different search.</h5>
-        </div>
-      );
-    }
-
     return this.state.listings.map((listing, idx) => {
       return (
         <SearchIndexItemContainer
@@ -87,7 +78,24 @@ class SearchIndex extends React.Component {
   }
 
   render() {
-    if (this.state.listings.length === 0) return null;
+    if (this.state.listings.length === 0) {
+      if (this.props.saved) {
+        return (
+          <div className="no-results">
+            <h2>No homes saved yet</h2>
+            <h5>Click <i className="far fa-heart"></i> to track homes you love.</h5>
+          </div>
+        )
+      } else {
+        return (
+          <div className="no-results">
+            <h2>Don't see any homes?</h2>
+            <h5>Try a different search.</h5>
+          </div>
+        );
+      }
+    };
+
     return (
       <div className='search-index'>
         <div className='search-title'>

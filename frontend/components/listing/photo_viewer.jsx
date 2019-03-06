@@ -17,7 +17,7 @@ class PhotoViewer extends React.Component {
 
   showPhotosRight() {
     let newState = this.state.shift - 400;
-    const maxShift = -1 * (((this.props.photos.length - 1) / 2) * 200 - 550);
+    const maxShift = -1 * (((this.props.photos.length - 1) / 2) * 300 - 600);
     if (newState < maxShift) newState = maxShift;
     this.setState({ shift: newState });
   }
