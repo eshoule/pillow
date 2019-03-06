@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from 'react-loaders'
 import SearchIndexItemContainer from './search_index_item_container';
 
 class SearchIndex extends React.Component {
@@ -6,13 +7,15 @@ class SearchIndex extends React.Component {
     super(props);
     this.state = {
       selected: 0 , 
-      listings: this.props.listings
+      listings: this.props.listings,
+      loading: true
     };
     this.renderTitle = this.renderTitle.bind(this);
   }
 
   componentDidUpdate(oldProps) {
     if (this.props.listings.length !== oldProps.listings.length) {
+      this.setState({loading: false});
       this.setState({ listings: this.props.listings });
     }
   }
@@ -79,7 +82,9 @@ class SearchIndex extends React.Component {
 
   render() {
     if (this.state.listings.length === 0) {
-      if (this.props.saved) {
+      if (this.state.loading){
+        return <Loader type="ball-scale-ripple-multiple" active />;
+      } else if (this.props.saved) {
         return (
           <div className="no-results">
             <h2>No homes saved yet</h2>
