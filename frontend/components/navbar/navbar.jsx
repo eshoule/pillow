@@ -90,15 +90,8 @@ class NavBar extends React.Component {
     const currentUser = this.props.currentUser;
 
     return e => {
-      let listings; let homes;
-      if (currentUser) {
-        listings = this.props.filters.listings;
-        homes = this.props.filters.homes;
-      } else {
-        listings = [0,1,2,3,4,5,6,7,8,9];
-        homes = [0,1,2,3,4,5];
-      }
-      
+      let listings = [0,1,2,3,4,5,6,7,8,9];
+      let homes = [0,1,2,3,4,5];
       if (type === 'Rent') listings = [10];
       updateFilter({ listingType: listings, homeType: homes });
       this.setState({ selected: type });
