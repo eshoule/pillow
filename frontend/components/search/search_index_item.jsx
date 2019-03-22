@@ -30,9 +30,9 @@ class SearchIndexItem extends React.Component {
         return <i className="fas fa-circle purple-circle"></i>;
       case 'recently sold':
         return <i className="fas fa-circle yellow-circle"></i>;
-      case 'foreclosed':
+      case 'foreclosed', 'forclosed':
         return <i className="fas fa-circle blue-circle"></i>;
-      case 'pre-forclosed':
+      case 'pre-foreclosed', 'pre-foreclosure':
         return <i className="fas fa-circle blue-circle"></i>;
       case 'make me move':
         return <i className="fas fa-circle blue-circle"></i>;

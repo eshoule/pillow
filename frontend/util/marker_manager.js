@@ -45,7 +45,7 @@ class MarkerManager {
       case 'for rent': return "purple";
       case 'make me move': return "blue";
       case 'pre-foreclosure': return "blue";
-      case 'foreclosed': return "blue";
+      case 'foreclosed', 'forclosed': return "blue";
       default: return "red";
     }
   }
@@ -59,7 +59,6 @@ class MarkerManager {
       strokeOpacity: 1,
       fillColor: "green",
       fillOpacity: 1.0,
-      // optimized: false,
       zIndex: 99999
     });
     marker.setZIndex(200)

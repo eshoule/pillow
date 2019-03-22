@@ -12,7 +12,6 @@ import {
 const LINKS = [
   {path: '/homes/for-sale', name: 'Buy'},
   {path: '/homes/for-rent', name: 'Rent'},
-  
   {path: '/sell', name: 'Sell'},
   {path: '/home-loans', name: 'Mortgages'},
   {path: '/agent-finder', name: 'Agent Finder'},
@@ -37,17 +36,25 @@ class NavBar extends React.Component {
   componentDidMount() {
     if (this.props.currentUser) {
       this.props.fetchSaves();
-    }
+    } 
     this.getSelected(this.props.location.pathname);
   }
 
-  componentDidUpdate(oldProps) {
+  componentDidUpdate(oldProps, oldState) {
     if (this.props.currentUser && this.props.currentUser !== oldProps.currentUser) {
       this.props.fetchSaves();
     }
 
     if (this.props.location.pathname !== oldProps.location.pathname) {
       this.getSelected(this.props.location.pathname);
+    }
+
+    if (this.state.selected !== oldState.selected && !this.props.currentUser) {
+      const listings = this.state.selected === 'Rent' ? [10] : [0,1,2,3,4,5,6,7,8,9];
+      this.props.updateFilter({ 
+        listingType: listings, 
+        homeType: [0,1,2,3,4,5] 
+      });
     }
   }
 
@@ -80,9 +87,18 @@ class NavBar extends React.Component {
 
   handleSelect(type) {
     const updateFilter = this.props.updateFilter;
+    const currentUser = this.props.currentUser;
+
     return e => {
-      let listings = [0,1,2,3,4,5,6,7,8,9];
-      let homes = [0,1,2,3,4,5];
+      let listings; let homes;
+      if (currentUser) {
+        listings = this.props.filters.listings;
+        homes = this.props.filters.homes;
+      } else {
+        listings = [0,1,2,3,4,5,6,7,8,9];
+        homes = [0,1,2,3,4,5];
+      }
+      
       if (type === 'Rent') listings = [10];
       updateFilter({ listingType: listings, homeType: homes });
       this.setState({ selected: type });

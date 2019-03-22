@@ -1,5 +1,5 @@
 LISTINGS = ['agent','owner','construction','foreclosure',
-  'coming soon','forclosed','pre-foreclosure','make me move',
+  'coming soon','foreclosed','pre-foreclosure','make me move',
   'for rent', 'recently sold']
 
 HOMES = ['house','apartment','condo','townhome','manufactured','lot']

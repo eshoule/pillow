@@ -6,7 +6,7 @@ class Api::HomesController < ApplicationController
   end 
 
   def index
-    save_filters
+    save_filters if current_user
     @homes = Home.with_attached_photos.where(
       "price >= ?
       AND price <= ?
@@ -61,25 +61,39 @@ class Api::HomesController < ApplicationController
     [minLng, maxLng]
   end
 
-  def list 
-    params[:listingType] ? 
-      params[:listingType].map{ |el| el.to_i } : 
-      DEFAULT_FILTERS[:listingType]
+  def listType 
+    if params[:listingType]
+      types = []
+      params[:listingType].each do |el|
+        next if el == ""
+        types << el.to_i
+      end
+    else
+      types = DEFAULT_FILTERS[:listingType]
+    end
+    types
   end
 
-  def home 
-    params[:homeType] ? 
-      params[:homeType].map{ |el| el.to_i } : 
-      DEFAULT_FILTERS[:homeType]
+  def homeType 
+    if params[:homeType]
+      types = []
+      params[:homeType].each do |el|
+        next if el == ""
+        types << el.to_i
+      end
+    else
+      types = DEFAULT_FILTERS[:homeType]
+    end 
+    types
   end
 
   def save_filters
     session[:filters] = {
-      listingType: list,
+      listingType: listType,
       minPrice: params[:minPrice] || DEFAULT_FILTERS[:minPrice],
       maxPrice: params[:maxPrice] || DEFAULT_FILTERS[:maxPrice],
       beds: params[:beds] || DEFAULT_FILTERS[:beds],
-      homeType: home,
+      homeType: homeType,
       minLat: params[:minLat] || DEFAULT_FILTERS[:minLat],
       maxLat: params[:maxLat] || DEFAULT_FILTERS[:maxLat],
       minLng: params[:minLng] || DEFAULT_FILTERS[:minLng],

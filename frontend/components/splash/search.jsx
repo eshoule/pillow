@@ -23,7 +23,7 @@ class Search extends React.Component {
       listings = [10];
       newPath = `/homes/for-rent/${query}`;
     } 
-
+    
     this.props.updateFilter({ listingType: listings })
     this.props.history.push(newPath)
   }

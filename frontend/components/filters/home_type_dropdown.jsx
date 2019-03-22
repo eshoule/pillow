@@ -15,7 +15,9 @@ class HomeTypeDropdown extends React.Component {
 
   componentDidUpdate(oldProps) {
     if (this.props.homes !== oldProps.homes) {
-      this.setState({ selected: this.props.homes.map(el => parseInt(el)) })
+      this.setState({ 
+        selected: this.props.homes.map(el => parseInt(el)) 
+      })
     }
   }
 
@@ -41,7 +43,9 @@ class HomeTypeDropdown extends React.Component {
       return (
         <div
           onClick={this.handleClick(idx)}
-          className={ selected ? 'checkbox-dropdown sub-checkbox checked' : 'checkbox-dropdown sub-checkbox'}
+          className={ selected ? 
+            'checkbox-dropdown sub-checkbox checked' : 
+            'checkbox-dropdown sub-checkbox'}
           key={`home-label-${idx}`}>
           <div className="input-box">
             <input

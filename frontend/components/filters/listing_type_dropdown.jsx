@@ -176,7 +176,9 @@ class ListingTypeDropdown extends React.Component {
       <div className='filter-bar-dropdown'
         onClick={this.props.showDropdown}>
         {this.renderCircles()}
-        <h2 id='title' className={show ? 'filter-selected' : ''}>Listing Type</h2>
+        <h2 id='title' className={show ? 'filter-selected' : ''}>
+          Listing Type
+        </h2>
         {this.props.renderArrow(show)}
         <div className={show ? 'dropdown' : 'hidden'}>
           {this.renderInputs()}
